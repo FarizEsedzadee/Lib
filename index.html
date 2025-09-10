@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libraff</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./assets/style/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./assets/style/swiper.css">
+</head>
+
+<body>
+    <header id="header"></header>
+
+    <main class="py-10   min-h-screen">
+
+        <!-- Hero Section -->
+        <section id="hero-section">
+            <div class="swiper pb-[30px]">
+                <div id="heroSwiper" class="swiper-wrapper">
+                    <div class="swiper-slide slide-1"></div>
+                    <div class="swiper-slide slide-2"></div>
+                </div>
+                <div class="swiper-pagination flex justify-center gap-[10px] bottom-[-5px]"></div>
+            </div>
+        </section>
+
+        <div class="max-w-[1460px] px-4 mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
+            <h2 class="text-3xl font-bold text-gray-800">Bugünün Seçimləri</h2>
+            <ul class="flex items-center gap-3 text-sm font-medium text-gray-600">
+                <li>
+                    <button
+                        class="px-3 py-1 rounded-md hover:bg-blue-100 hover:text-blue-700 transition">Azərbaycan</button>
+                </li>
+                <li>
+                    <button class="px-3 py-1 rounded-md hover:bg-blue-100 hover:text-blue-700 transition">Rusca</button>
+                </li>
+                <li>
+                    <button
+                        class="px-3 py-1 rounded-md hover:bg-blue-100 hover:text-blue-700 transition">Türkçə</button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="max-w-[1460px] mx-auto">
+            <div id="books"
+                class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-6">
+            </div>
+        </div>
+
+    </main>
+    <script type="module" src="./assets/middleware/getHeader.js"></script>
+    <script type="module" src="./assets/utils/categoryPopUp.js"></script>
+    <script type="module" src="./assets/js/service.js"></script>
+    <script type="module" src="./assets/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./assets/js/swiper.js"></script>
+</body>
+
+</html>

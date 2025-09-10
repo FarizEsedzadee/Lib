@@ -1,0 +1,75 @@
+/* ======================================================================== >> KEYFRAMES << =========================================================================== */
+@keyframes progressFill {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+/* ======================================================================== >> SWIPER << =========================================================================== */
+.swiper {
+    width: 100%;
+    height: 470px;
+    padding-bottom: 45px !important;
+
+}
+
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+
+}
+
+.slide-1 {
+    background-image: url('../img/swiper1.png');
+}
+
+.slide-2 {
+    background-image: url('../img/swiper2.png');
+}
+
+.swiper-pagination-bullet-active {
+    width: 24px !important;
+    background: #d3d3d3 !important;
+    border-radius: 3px !important;
+    overflow: hidden !important;
+    position: relative !important;
+    margin: 0 4px !important;
+}
+
+.swiper-pagination-bullet-active::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background-color: red;
+    border-radius: 3px;
+    animation: progressFill 7s linear forwards;
+}
+
+/* ======================================================================== >> RESPSONSIVE DESIGN << =========================================================================== */
+
+@media (max-width: 768px) {
+    .swiper {
+        margin-top: 70px;
+        width: 100%;
+        border-radius: 20px;
+        padding-bottom: 5px !important;
+        height: 500px;
+    }
+
+    .swiper-slide {
+        height: 300px;
+        border-radius: 20px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libraff</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../style/style.css">
+</head>
+
+<body>
+    <header id="header"></header>
+    <main class="max-w-[1460px] mx-auto">
+        <div class="top py-[10px_20px] text-[#767676] text-[14px]">
+            <a href="">Əsas Səhifə</a>
+            <span>/</span>
+            <a href="">Kitab</a>
+            <span>/</span>
+            <a href="">Qeyri-bədii ədəbiyyat</a>
+            <span>/</span>
+            <a href="">Biznes & İqtisadiyyat</a>
+            <span>/</span>
+            <a class="text-[#9C9C9C]" href="">Rəqəmsal Liderlik</a>
+        </div>
+
+        <div id="book-detail"></div>
+
+        <div id="book-detail-2"></div>
+
+        <div class="max-w-[1460px] mx-auto">
+            <h2 class="text-xl font-bold mb-4">Bənzər Kitablar</h2>
+            <div id="similar-books"
+                class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-6">
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="../middleware/getHeader.js"></script>
+    <script type="module" src="../js/service.js"></script>
+    <script type="module" src="../js/detail.js"></script>
+</body>
+
+</html>
