@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="az">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Paneli</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 font-sans">
+
+    <!-- Layout -->
+    <div class="flex min-h-screen">
+
+        <!-- Sidebar -->
+        <aside class="w-64 bg-red-700 text-white flex flex-col">
+            <!-- Profil -->
+            <div class="p-6 border-b border-red-600 text-center">
+                <img src="https://i.pravatar.cc/100" alt="Profil Şəkli"
+                    class="w-20 h-20 mx-auto rounded-full mb-2 border-2 border-white">
+                <h1 class="text-lg font-semibold">Salam, Elvin</h1>
+                <p class="text-sm text-red-200">elvinmenebalver123@gmail.com</p>
+            </div>
+
+            <!-- Navigasiya -->
+            <nav class="flex-1 px-4 py-6 space-y-2">
+                <a href="#dashboard" class="block py-2 px-4 rounded hover:bg-red-600 transition">📊 Dashboard</a>
+                <a href="#books" class="block py-2 px-4 rounded hover:bg-red-600 transition">📚 Kitablar</a>
+                <a href="#add" class="block py-2 px-4 rounded hover:bg-red-600 transition">➕ Əlavə Et</a>
+                <a href="#edit" class="block py-2 px-4 rounded hover:bg-red-600 transition">✏️ Redaktə Et</a>
+                <a href="#delete" class="block py-2 px-4 rounded hover:bg-red-600 transition">🗑️ Sil</a>
+            </nav>
+
+            <!-- Footer -->
+            <div class="p-4 text-sm border-t border-red-600">© 2025 Admin</div>
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8 overflow-auto">
+
+            <!-- Dashboard -->
+            <section id="dashboard" class="mb-12">
+                <h2 class="text-2xl font-bold mb-6 text-red-700">📊 Dashboard</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded shadow hover:shadow-lg transition">
+                        <p class="text-gray-500">Ümumi Kitablar</p>
+                        <p class="text-3xl font-bold text-red-700">120</p>
+                    </div>
+                    <div class="bg-white p-6 rounded shadow hover:shadow-lg transition">
+                        <p class="text-gray-500">Əlavə Edilənlər (Bu ay)</p>
+                        <p class="text-3xl font-bold text-red-700">18</p>
+                    </div>
+                    <div class="bg-white p-6 rounded shadow hover:shadow-lg transition">
+                        <p class="text-gray-500">Silinmişlər</p>
+                        <p class="text-3xl font-bold text-red-700">4</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Kitab Siyahısı -->
+            <section id="book-section" class="mb-12">
+                <h2 class="text-2xl font-bold mb-6 text-red-700">📚 Kitab Siyahısı</h2>
+                <div class="bg-white shadow rounded overflow-x-auto">
+                    <table class="min-w-full book-table table-auto">
+                        <thead class="bg-red-700 text-white">
+                            <tr>
+                                <th class="px-4 py-2 text-left">ID</th>
+                                <th class="px-4 py-2 text-left">Ad</th>
+                                <th class="px-4 py-2 text-left">Müəllif</th>
+                                <th class="px-4 py-2 text-left">Əməliyyat</th>
+                            </tr>
+                        </thead>
+                        <tbody id="books">
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Əlavə Et -->
+            <section id="add" class="mb-12">
+                <h2 class="text-2xl font-bold mb-4 text-red-700">➕ Kitab Əlavə Et</h2>
+                <form class="bg-white p-6 rounded shadow space-y-4">
+                    <input type="text" placeholder="Kitab Adı"
+                        class="w-full border border-gray-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-red-500" />
+                    <input type="text" placeholder="Müəllif"
+                        class="w-full border border-gray-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-red-500" />
+                    <textarea placeholder="Qısa Təsvir"
+                        class="w-full border border-gray-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-red-500"></textarea>
+                    <button type="submit" class="bg-red-700 hover:bg-red-800 text-white px-6 py-2 rounded">Əlavə
+                        Et</button>
+                </form>
+            </section>
+
+            <!-- Redaktə Et -->
+            <section id="edit" class="mb-12">
+                <h2 class="text-2xl font-bold mb-4 text-red-700">✏️ Kitabı Redaktə Et</h2>
+                <form class="bg-white p-6 rounded shadow space-y-4">
+                    <input type="text" placeholder="Kitab ID" class="w-full border border-gray-300 p-3 rounded" />
+                    <input type="text" placeholder="Yeni Ad" class="w-full border border-gray-300 p-3 rounded" />
+                    <input type="text" placeholder="Yeni Müəllif" class="w-full border border-gray-300 p-3 rounded" />
+                    <textarea placeholder="Yeni Təsvir" class="w-full border border-gray-300 p-3 rounded"></textarea>
+                    <button type="submit" class="bg-red-700 hover:bg-red-800 text-white px-6 py-2 rounded">Yadda
+                        Saxla</button>
+                </form>
+            </section>
+
+            <!-- Sil -->
+            <section id="delete">
+                <h2 class="text-2xl font-bold mb-4 text-red-700">🗑️ Kitabı Sil</h2>
+                <form class="bg-white p-6 rounded shadow space-y-4">
+                    <input type="text" placeholder="Kitab ID" class="w-full border border-gray-300 p-3 rounded" />
+                    <button type="submit" class="bg-red-700 hover:bg-red-800 text-white px-6 py-2 rounded">Sil</button>
+                </form>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>

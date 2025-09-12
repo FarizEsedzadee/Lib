@@ -3,7 +3,7 @@ const swiper = new Swiper('.swiper', {
     loop: true,
     slidesPerView: 1,
 
-    speed: 10`00,
+    speed: 1000,
     autoplay: {
         delay: 7000,
         disableOnInteraction: false,
@@ -12,4 +12,4 @@ const swiper = new Swiper('.swiper', {
         el: '.swiper-pagination',
         clickable: true,
     },
-});
+})
