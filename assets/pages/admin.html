@@ -14,26 +14,28 @@
     <div class="flex min-h-screen">
 
         <!-- Sidebar -->
-        <aside class="w-64 bg-red-700 text-white flex flex-col">
-            <!-- Profil -->
-            <div class="p-6 border-b border-red-600 text-center">
-                <img src="https://i.pravatar.cc/100" alt="Profil Şəkli"
-                    class="w-20 h-20 mx-auto rounded-full mb-2 border-2 border-white">
-                <h1 class="text-lg font-semibold">Salam, Elvin</h1>
-                <p class="text-sm text-red-200">elvinmenebalver123@gmail.com</p>
+        <aside class="w-64 bg-red-700 text-white flex flex-col relative">
+            <div class="fixed">
+                <!-- Profil -->
+                <div class="p-6 border-b border-red-600 text-center">
+                    <img src="https://i.pravatar.cc/100" alt="Profil Şəkli"
+                        class="w-20 h-20 mx-auto rounded-full mb-2 border-2 border-white">
+                    <h1 class="text-lg font-semibold">Salam, Elvin</h1>
+                    <p class="text-sm text-red-200">elvinmenebalver123@gmail.com</p>
+                </div>
+
+                <!-- Navigasiya -->
+                <nav class="flex-1 px-4 py-6 space-y-2">
+                    <a href="#dashboard" class="block py-2 px-4 rounded hover:bg-red-600 transition">📊 Dashboard</a>
+                    <a href="#books" class="block py-2 px-4 rounded hover:bg-red-600 transition">📚 Kitablar</a>
+                    <a href="#add" class="block py-2 px-4 rounded hover:bg-red-600 transition">➕ Əlavə Et</a>
+                    <a href="#edit" class="block py-2 px-4 rounded hover:bg-red-600 transition">✏️ Redaktə Et</a>
+                    <a href="#delete" class="block py-2 px-4 rounded hover:bg-red-600 transition">🗑️ Sil</a>
+                </nav>
+
+                <!-- Footer -->
+                <div class="p-4 text-sm border-t border-red-600">© 2025 Admin</div>
             </div>
-
-            <!-- Navigasiya -->
-            <nav class="flex-1 px-4 py-6 space-y-2">
-                <a href="#dashboard" class="block py-2 px-4 rounded hover:bg-red-600 transition">📊 Dashboard</a>
-                <a href="#books" class="block py-2 px-4 rounded hover:bg-red-600 transition">📚 Kitablar</a>
-                <a href="#add" class="block py-2 px-4 rounded hover:bg-red-600 transition">➕ Əlavə Et</a>
-                <a href="#edit" class="block py-2 px-4 rounded hover:bg-red-600 transition">✏️ Redaktə Et</a>
-                <a href="#delete" class="block py-2 px-4 rounded hover:bg-red-600 transition">🗑️ Sil</a>
-            </nav>
-
-            <!-- Footer -->
-            <div class="p-4 text-sm border-t border-red-600">© 2025 Admin</div>
         </aside>
 
 
