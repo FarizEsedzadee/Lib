@@ -33,6 +33,10 @@
     background-image: url('../img/swiper2.png');
 }
 
+.slide-3 {
+    background-image: url('../img/swiper3.png');
+}
+
 .swiper-pagination-bullet-active {
     width: 24px !important;
     background: #d3d3d3 !important;
