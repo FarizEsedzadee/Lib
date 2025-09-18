@@ -27,15 +27,20 @@
 
 .slide-1 {
     background-image: url('../img/swiper1.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #f5d2a2;
 }
 
 .slide-2 {
     background-image: url('../img/swiper2.png');
 }
-
 .slide-3 {
     background-image: url('../img/swiper3.png');
 }
+
+
 
 .swiper-pagination-bullet-active {
     width: 24px !important;
