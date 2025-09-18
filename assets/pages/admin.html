@@ -5,59 +5,54 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Paneli</title>
+    <link rel="stylesheet" href="../style/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body class="bg-gray-100 font-sans">
-
     <div class="flex min-h-screen">
-
-        <aside class="w-64 bg-red-700 text-white flex flex-col relative">
-            <div class="fixed">
+        <aside class="w-64 bg-red-700 text-white flex flex-col relative shadow-lg">
+            <div class="fixed w-64 h-full">
                 <div class="p-6 border-b border-red-600 text-center">
                     <img src="https://i.pravatar.cc/100" alt="Profil Şəkli"
-                        class="w-20 h-20 mx-auto rounded-full mb-2 border-2 border-white">
-                    <h1 class="text-lg font-semibold">Salam, Elvin</h1>
+                        class="w-24 h-24 mx-auto rounded-full mb-3 border-4 border-red-300 shadow-md">
+                    <h1 class="text-xl font-semibold">Salam, Elvin</h1>
                     <p class="text-sm text-red-200">elvinmenebalver123@gmail.com</p>
                 </div>
 
                 <nav class="flex-1 px-4 py-6 space-y-2">
-                    <a href="#dashboard" class="block py-2 px-4 rounded hover:bg-red-600 transition">📊 Dashboard</a>
-                    <a href="#books" class="block py-2 px-4 rounded hover:bg-red-600 transition">📚 Kitablar</a>
-                    <a href="#add" class="block py-2 px-4 rounded hover:bg-red-600 transition">➕ Əlavə Et</a>
-                    <a href="#edit" class="block py-2 px-4 rounded hover:bg-red-600 transition">✏️ Redaktə Et</a>
-                    <a href="#delete" class="block py-2 px-4 rounded hover:bg-red-600 transition">🗑️ Sil</a>
+                    <a href="#dashboard"
+                        class="block py-3 px-4 rounded-lg hover:bg-red-600 transition-colors duration-200">📊
+                        Dashboard</a>
+                    <a href="#books"
+                        class="block py-3 px-4 rounded-lg hover:bg-red-600 transition-colors duration-200">📚
+                        Kitablar</a>
+                    <a href="#add" class="block py-3 px-4 rounded-lg hover:bg-red-600 transition-colors duration-200">➕
+                        Əlavə Et</a>
+                    <a href="#delete"
+                        class="block py-3 px-4 rounded-lg hover:bg-red-600 transition-colors duration-200">🗑️ Sil</a>
                 </nav>
 
-                <div class="p-4 text-sm border-t border-red-600">© 2025 Admin</div>
+                <div class="p-4 text-sm border-t border-red-600 text-center text-red-200">© 2025 Admin</div>
             </div>
         </aside>
 
-
         <main class="flex-1 p-8 overflow-auto">
 
-            <!-- Dashboard -->
             <section id="dashboard" class="mb-12">
                 <h2 class="text-2xl font-bold mb-6 text-red-700">📊 Dashboard</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-white p-6 rounded shadow hover:shadow-lg transition">
+                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
                         <p class="text-gray-500">Ümumi Kitablar</p>
-                        <p class="text-3xl font-bold text-red-700">120</p>
-                    </div>
-                    <div class="bg-white p-6 rounded shadow hover:shadow-lg transition">
-                        <p class="text-gray-500">Əlavə Edilənlər (Bu ay)</p>
-                        <p class="text-3xl font-bold text-red-700">18</p>
-                    </div>
-                    <div class="bg-white p-6 rounded shadow hover:shadow-lg transition">
-                        <p class="text-gray-500">Silinmişlər</p>
-                        <p class="text-3xl font-bold text-red-700">4</p>
+                        <p id="all-books-count" class="text-4xl font-bold text-red-700">120</p>
                     </div>
                 </div>
             </section>
 
             <section id="book-section" class="mb-12">
                 <h2 class="text-2xl font-bold mb-6 text-red-700">📚 Kitab Siyahısı</h2>
-                <div class="bg-white shadow rounded overflow-x-auto">
+                <div class="bg-white shadow-lg rounded-xl overflow-x-auto">
                     <table class="min-w-full book-table table-auto">
                         <thead class="bg-red-700 text-white">
                             <tr>
@@ -68,7 +63,10 @@
                                 <th class="px-4 py-2 text-left">Əməliyyat</th>
                             </tr>
                         </thead>
-                        <tbody id="books">
+                        <tbody id="books" class="divide-y divide-gray-200">
+                            <div id="loader" class="loader-container">
+                                <div class="loader-spinner"></div>
+                            </div>
                         </tbody>
                     </table>
                 </div>
@@ -76,63 +74,94 @@
 
             <section id="add" class="mb-12">
                 <h2 class="text-2xl font-bold mb-4 text-red-700">➕ Kitab Əlavə Et</h2>
-                <form class="bg-white p-6 rounded shadow space-y-4">
-                    <input type="text" placeholder="Kitab Adı"
-                        class="w-full border border-gray-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-red-500" />
-                    <input type="text" placeholder="Müəllif"
-                        class="w-full border border-gray-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-red-500" />
-                    <input type="text" placeholder="Kategoriya"
-                        class="w-full border border-gray-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-red-500" />
-                    <textarea placeholder="Qısa Təsvir"
-                        class="w-full border border-gray-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-red-500"></textarea>
-                    <button type="submit" class="bg-red-700 hover:bg-red-800 text-white px-6 py-2 rounded">Əlavə
-                        Et</button>
-                </form>
-            </section>
+                <form class="addForm bg-white p-6 rounded-xl shadow-lg space-y-4">
+                    <input type="text" name="book_name" placeholder="Kitab Adı"
+                        class="addInputs w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" />
 
-            <section id="edit" class="mb-12">
-                <h2 class="text-2xl font-bold mb-4 text-red-700">✏️ Kitabı Redaktə Et</h2>
-                <form class="bg-white p-6 rounded shadow space-y-4">
-                    <input type="text" placeholder="Kitab ID" class="w-full border border-gray-300 p-3 rounded" />
-                    <input type="text" placeholder="Yeni Ad" class="w-full border border-gray-300 p-3 rounded" />
-                    <input type="text" placeholder="Yeni Müəllif" class="w-full border border-gray-300 p-3 rounded" />
-                    <input type="text" placeholder="Kategoriya" class="w-full border border-gray-300 p-3 rounded" />
-                    <textarea placeholder="Yeni Təsvir" class="w-full border border-gray-300 p-3 rounded"></textarea>
-                    <button type="submit" class="bg-red-700 hover:bg-red-800 text-white px-6 py-2 rounded">Yadda
-                        Saxla</button>
+                    <input type="text" name="book_img" placeholder="Şəkil URL"
+                        class="addInputs w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" />
+
+                    <input type="number" step="0.01" name="price" placeholder="Qiymət"
+                        class="addInputs w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" />
+
+                    <input type="number" step="0.01" name="sale" placeholder="Endirimli Qiymət (İstəyə Bağlı)"
+                        class="addInputs w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" />
+
+                    <input type="text" name="author" placeholder="Müəllif"
+                        class="addInputs w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" />
+
+                    <input type="text" name="genre" placeholder="Janr"
+                        class="addInputs w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" />
+
+                    <input type="text" name="category" placeholder="Kateqoriya"
+                        class="addInputs w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" />
+
+                    <input type="text" name="altCategory" placeholder="Alt Kateqoriya"
+                        class="addInputs w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" />
+
+                    <input type="text" name="publisher" placeholder="Nəşriyyat"
+                        class="addInputs w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" />
+
+                    <textarea name="description" placeholder="Qısa Təsvir"
+                        class="addInputs w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"></textarea>
+
+                    <button type="submit" onclick="handleCreate(event)"
+                        class="bg-red-700 hover:bg-red-800 text-white font-bold px-6 py-3 rounded-lg transition-colors duration-200">
+                        Əlavə Et
+                    </button>
                 </form>
             </section>
 
             <section id="delete">
                 <h2 class="text-2xl font-bold mb-4 text-red-700">🗑️ Kitabı Sil</h2>
-                <form class="bg-white p-6 rounded shadow space-y-4">
-                    <input type="text" placeholder="Kitab ID" class="w-full border border-gray-300 p-3 rounded" />
-                    <button type="submit" class="bg-red-700 hover:bg-red-800 text-white px-6 py-2 rounded">Sil</button>
+                <form class="bg-white p-6 rounded-xl shadow-lg space-y-4">
+                    <input type="text" placeholder="Kitab ID" id="deleteBookInp"
+                        class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" />
+                    <button type="submit" onclick="handleDelete()"
+                        class="bg-red-700 hover:bg-red-800 text-white font-bold px-6 py-3 rounded-lg transition-colors duration-200">Sil</button>
                 </form>
             </section>
 
-            <div id="editModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
-                <div class="bg-white p-6 rounded w-full max-w-md">
+            <div id="editModal"
+                class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4">
+                <div class="bg-white p-8 rounded-xl w-full max-w-lg shadow-2xl">
                     <h2 class="text-xl font-bold mb-4 text-red-700">Kitabı Redaktə Et</h2>
-                    <form id="modalEditForm" class="space-y-4">
-                        <input type="hidden" id="edit-id">
-                        <input type="text" id="edit-title" placeholder="Yeni Ad" class="w-full border p-2 rounded" />
-                        <input type="text" id="edit-author" placeholder="Yeni Müəllif"
-                            class="w-full border p-2 rounded" />
-                        <textarea id="edit-description" placeholder="Yeni Təsvir"
-                            class="w-full border p-2 rounded"></textarea>
-                        <div class="flex justify-end space-x-2">
-                            <button type="button" onclick="closeModal('editModal')"
-                                class="px-4 py-2 bg-gray-300 rounded">Bağla</button>
-                            <button type="submit" class="px-4 py-2 bg-red-700 text-white rounded">Yadda Saxla</button>
-                        </div>
-                    </form>
+
+                    <input type="text" id="editBookName" placeholder="Kitab adı"
+                        class="border p-3 mb-2 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" />
+                    <input type="text" id="editBookImg" placeholder="Şəkil URL"
+                        class="border p-3 mb-2 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" />
+                    <input type="number" id="editPrice" placeholder="Qiymət"
+                        class="border p-3 mb-2 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" />
+                    <input type="number" id="editSale" placeholder="Endirim"
+                        class="border p-3 mb-2 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" />
+                    <input type="text" id="editAuthor" placeholder="Müəllif"
+                        class="border p-3 mb-2 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" />
+                    <input type="text" id="editGenre" placeholder="Janr"
+                        class="border p-3 mb-2 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" />
+                    <input type="text" id="editCategory" placeholder="Kateqoriya"
+                        class="border p-3 mb-2 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" />
+                    <input type="text" id="editAltCategory" placeholder="Alt kateqoriya"
+                        class="border p-3 mb-2 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" />
+                    <input type="text" id="editPublisher" placeholder="Nəşriyyat"
+                        class="border p-3 mb-2 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" />
+                    <textarea id="editDescription" placeholder="Təsvir"
+                        class="border p-3 mb-2 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"></textarea>
+
+                    <div class="flex justify-end space-x-2 mt-4">
+                        <button onclick="closeEditModal()"
+                            class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-6 py-3 rounded-lg transition-colors duration-200">Bağla</button>
+                        <button onclick="handleEdit()"
+                            class="bg-red-700 hover:bg-red-800 text-white px-6 py-3 rounded-lg transition-colors duration-200">Yadda
+                            saxla</button>
+                    </div>
                 </div>
             </div>
 
         </main>
 
     </div>
+    <script src="../js/loader.js"></script>
     <script type="module" src="../js/admin.js"></script>
 </body>
 

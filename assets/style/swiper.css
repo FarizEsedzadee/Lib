@@ -12,7 +12,7 @@
 /* ======================================================================== >> SWIPER << =========================================================================== */
 .swiper {
     width: 100%;
-    height: 470px;
+    height: 500px;
     padding-bottom: 45px !important;
 
 }
@@ -51,7 +51,7 @@
     width: 0%;
     background-color: red;
     border-radius: 3px;
-    animation: progressFill 7s linear forwards;
+    animation: progressFill 5s linear forwards;
 }
 
 /* ======================================================================== >> RESPSONSIVE DESIGN << =========================================================================== */

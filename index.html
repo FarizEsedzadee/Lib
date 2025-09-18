@@ -30,7 +30,8 @@
             </div>
         </section>
 
-        <div class="max-w-[1460px] px-4 mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
+        <div
+            class="max-w-[1460px] px-4 mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
             <h2 class="text-3xl font-bold text-gray-800">Bugünün Seçimləri</h2>
             <ul class="flex items-center gap-3 text-sm font-medium text-gray-600">
                 <li>
@@ -50,10 +51,14 @@
         <div class="max-w-[1460px] mx-auto">
             <div id="books"
                 class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-6">
+                <div id="loader" class="loader-container">
+                    <div class="loader-spinner"></div>
+                </div>
             </div>
         </div>
 
     </main>
+    <script src="./assets/js/loader.js"></script>
     <script type="module" src="./assets/middleware/getHeader.js"></script>
     <script type="module" src="./assets/utils/categoryPopUp.js"></script>
     <script type="module" src="./assets/js/service.js"></script>
