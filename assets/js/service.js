@@ -2,16 +2,16 @@ const BASE_URL = "https://libdata-3bf0.onrender.com"
 
 async function getAllBooks() {
     try {
-        showLoader();
-        const res = await fetch(`${BASE_URL}/books`);
+/*         showLoader();
+ */        const res = await fetch(`${BASE_URL}/books`);
         const data = await res.json();
         return data;
     } catch (error) {
         console.error('Məlumatlar yüklənərkən xəta baş verdi:', error);
     }
     finally {
-        hideLoader();
-    }
+/*         hideLoader();
+ */    }
 }
 
 async function getBookById(id) {

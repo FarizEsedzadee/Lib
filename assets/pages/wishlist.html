@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="az">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Favoritlər | Libraff</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="../style/style.css" />
+</head>
+
+<body class="bg-gray-50">
+    <div id="loader" class="loader-container">
+        <div class="loader-spinner"></div>
+    </div>
+    <header id="header"></header>
+
+    <main class="max-w-[1440px] mx-auto px-4 py-10">
+        <h1 class="text-3xl font-bold mb-6 text-gray-800">Favorit Kitablarım</h1>
+
+        <div id="wishlist-books"
+            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+        </div>
+
+        <div id="empty-message" class="hidden text-center text-gray-500 mt-10 text-lg">
+            Favoritlər siyahısı boşdur.
+        </div>
+    </main>
+
+    <script src="../js/loader.js"></script>
+    <script type="module" src="../js/wishlist.js"></script>
+    <script type="module" src="../middleware/getHeader.js"></script>
+</body>
+
+</html>

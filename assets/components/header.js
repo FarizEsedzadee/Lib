@@ -20,7 +20,7 @@ export default function getHeader() {
                 <span>AZ <i class="fa-solid fa-angle-down"></i></span>
                 <a target="_blank" href="/assets/pages/admin.html?#add" class="flex items-center gap-1 h-[44px] px-[15px] bg-[#F4F6FC] rounded-[24px] text-[14px]"><i
                         class="fa-solid fa-circle-user text-[25px]"></i> <span>Admin Panel</span> </a>
-                <span><i class="fa-regular fa-heart text-[25px]"></i></span>
+                <a href="/assets/pages/wishlist.html"><i class="fa-regular fa-heart text-[25px]"></i></a>
                 <span><i class="fa-solid fa-cart-arrow-down text-[20px]"></i></span>
             </div>
         </div>
