@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="az">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gitara Çalan Qoca Adam</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body,
+    html {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background: linear-gradient(135deg, #654321 0%, #222 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    .post {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      background: radial-gradient(circle at center, #443322 40%, #221100 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .guitarist {
+      position: relative;
+      width: 250px;
+      height: 400px;
+      background: #b98c5e;
+      border-radius: 50% 50% 40% 40% / 60% 60% 40% 40%;
+      box-shadow: inset 0 0 10px #865e3a;
+    }
+
+    /* Saqqal və saç üçün sadə stil */
+    .hair {
+      position: absolute;
+      top: -60px;
+      left: 40px;
+      width: 170px;
+      height: 100px;
+      background: linear-gradient(45deg, #444 0%, #222 100%);
+      border-radius: 50% 50% 30% 30%;
+      filter: drop-shadow(0 4px 2px rgba(0, 0, 0, 0.5));
+    }
+
+    .beard {
+      position: absolute;
+      bottom: 30px;
+      left: 50px;
+      width: 150px;
+      height: 120px;
+      background: linear-gradient(180deg, #444 0%, #222 100%);
+      border-radius: 70% 70% 50% 50%;
+      filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.6));
+    }
+
+    /* Boy */
+    .body {
+      position: absolute;
+      top: 200px;
+      left: 25px;
+      width: 200px;
+      height: 200px;
+      background: #a36b35;
+      border-radius: 60% 60% 50% 50% / 70% 70% 50% 50%;
+      box-shadow: inset 0 0 15px #734c1a;
+    }
+
+    /* Gitara */
+    .guitar {
+      position: absolute;
+      bottom: 80px;
+      right: -40px;
+      width: 120px;
+      height: 280px;
+      background: linear-gradient(45deg, #d2a679 0%, #6e4c2a 100%);
+      border-radius: 30% 30% 40% 40% / 40% 40% 50% 50%;
+      box-shadow: inset 0 0 15px #5a3e19;
+      transform: rotate(-20deg);
+    }
+
+    .guitar-neck {
+      position: absolute;
+      top: 10px;
+      right: 40px;
+      width: 20px;
+      height: 220px;
+      background: #4b2f0a;
+      border-radius: 10px;
+    }
+
+    .strings {
+      position: absolute;
+      top: 10px;
+      right: 45px;
+      width: 10px;
+      height: 220px;
+      border-left: 2px solid #ccc;
+      border-right: 2px solid #ccc;
+    }
+
+    /* Kod mesajları */
+    .code-message {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.7);
+      padding: 10px 15px;
+      font-size: 14px;
+      border-radius: 8px;
+      max-width: 80vw;
+      font-family: 'Courier New', Courier, monospace;
+      white-space: pre-wrap;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .code-message.visible {
+      opacity: 1;
+    }
+
+    button {
+      position: absolute;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px 20px;
+      background: #4a7c59;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #3a5c3f;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="post">
+    <div class="guitarist">
+      <div class="hair"></div>
+      <div class="beard"></div>
+      <div class="body"></div>
+      <div class="guitar">
+        <div class="guitar-neck"></div>
+        <div class="strings"></div>
+      </div>
+    </div>
+    <button id="play-melody">Başını Qat</button>
+    <div class="code-message" id="code-message"></div>
+  </div>
+
+  <script>
+    const codeMessages = [
+      "'Dıdın dıdın... 🎸'", 
+      "'Plin plin plin... 🎶'", 
+      "console.log('Çalınan akkord: C');",
+      "'Vur qapaq, vur qapaq! 🥁'",
+      "'Başını qat da, yazmağa vaxtım yoxdu. Bu da ChatGPT\'di 😎'",
+      "'Gitara çalmaqla məşğulam, kod yazmaq artıq sənə qaldı!'",
+      "'Kodlar da melodiya kimi: bəzən tərtəmiz, bəzən səliqəsiz 🎶'",
+      "'Melodiya uğurlu oldu, indi rahatlayıb çay içək ☕'",
+      "'Yazdıqlarımı anlamasan, üzülmə, mən də AIyam! 🤖'",
+      "'Gitaranın səsi yox, kodların səsləndi 🎸➡️💻'",
+      "'Bu kod parçaları kimi, həyatda da səhvlər olur, amma davam etməli!'"
+    ];
+
+    const codeMessageEl = document.getElementById('code-message');
+    const playButton = document.getElementById('play-melody');
+
+    let index = 0;
+
+    playButton.addEventListener('click', () => {
+      codeMessageEl.classList.remove('visible');
+      setTimeout(() => {
+        codeMessageEl.textContent = codeMessages[index];
+        codeMessageEl.classList.add('visible');
+        index = (index + 1) % codeMessages.length;
+      }, 300);
+    });
+  </script>
+</body>
+
+</html>

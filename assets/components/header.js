@@ -30,7 +30,7 @@ export default function getHeader() {
                     <li>Bestseller - İyul</li>
                     <li>Endirimlər</li>
                     <li>Müəlliflər</li>
-                    <li>Klassiklər</li>
+                    <li><a href="/assets/pages/classics.html">Klassiklər</a></li>
                 </ul>
             </div>
             <div class="right">
