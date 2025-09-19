@@ -4,10 +4,22 @@ const books = document.getElementById('books');
 
 async function useFetch() {
   const data = await getAllBooks()
-  printAllBooks(data)
+  searchInp.addEventListener('input', () => {
+    const filtered = filterBooks(data);
+    books.innerHTML = "";
+    printAllBooks(filtered);
+  }); printAllBooks(data)
 }
 
 useFetch()
+
+const searchInp = document.querySelector('#searchInp');
+
+function filterBooks(data) {
+  const value = searchInp.value.toLowerCase().trim();
+  return data.filter(item => item.book_name.toLowerCase().includes(value));
+}
+
 
 function printAllBooks(data) {
   data.forEach(item => {

@@ -10,7 +10,7 @@ export default function getHeader() {
                     class="flex items-center justify-center h-[44px] px-[25px] bg-[#EF3340] text-white text-base rounded-[24px] shadow-[inset_0_0_10px_rgba(0,0,0,0.05)]">
                     <i class="fa-solid fa-border-all"></i> <span class="font-bold ms-[5px]">Kataloq</span></button>
                 <label class="relative block w-full">
-                    <input type="text" placeholder="Növbəti kitabınızı axtarın"
+                    <input type="text" id="searchInp" placeholder="Növbəti kitabınızı axtarın"
                         class="w-full border rounded-[24px] p-[7px_40px_7px_15px] border-2 border-[#cbd5e1] focus:shadow-lg outline-none">
                     <i
                         class="fa-solid fa-magnifying-glass absolute top-1/2 right-4 -translate-y-1/2 text-gray-500 pointer-events-none"></i>
