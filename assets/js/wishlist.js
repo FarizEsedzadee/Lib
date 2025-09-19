@@ -1,8 +1,6 @@
 import { getAllBooks } from "./service.js";
 
-// =======================
-// LocalStorage funksiyaları
-// =======================
+
 export function getWishlist() {
   return JSON.parse(localStorage.getItem("wishlist")) || [];
 }
@@ -22,9 +20,6 @@ export function toggleWishlist(id) {
   localStorage.setItem("wishlist", JSON.stringify(updated));
 }
 
-// =======================
-// Wishlist səhifəsini render et
-// =======================
 const container = document.getElementById("wishlist-books");
 const emptyMessage = document.getElementById("empty-message");
 
@@ -61,7 +56,7 @@ function renderWishlistBooks(books) {
         <i class="fas fa-heart"></i>
       </button>
 
-      <a target="_blank" class="inline-block h-[340px] w-[226px]" href="assets/pages/detail.html?id=${book.id}">
+      <a target="_blank" class="inline-block h-[340px] w-[226px]" href="/assets/pages/detail.html?id=${book.id}">
         <img class="p-4 rounded-t-xl object-cover !rounded-[24px] h-full w-full" src="${book.book_img}" alt="${book.book_name}" />
       </a>
 
